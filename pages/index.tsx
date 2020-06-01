@@ -1,36 +1,34 @@
 import { useTranslation } from 'react-i18next'
 import styled from 'styled-components'
 
-import PrefecturePanel from '../components/molecures/PrefecturePanel'
 import '../constants/locales/I18n'
-import {
-  PrefectureInfection,
-  getPrefectureInfectionList,
-} from '../model/Prefecture'
+import { Prefecture } from '../app_interface'
+import { getPrefectureList } from '../model/Prefecture'
+import PrefecturePanel from '../components/molecures/PrefecturePanel'
 
 interface Props {
-  prefectureInfectionList: PrefectureInfection[]
+  prefectureList: Prefecture[]
 }
 
 export async function getStaticProps() {
-  const prefectureInfectionList = await getPrefectureInfectionList()
+  const prefectureList = await getPrefectureList()
   return {
     props: {
-      prefectureInfectionList: prefectureInfectionList,
+      prefectureList: prefectureList,
     },
   }
 }
 
-export default function Home({ prefectureInfectionList }: Props) {
+export default function Home({ prefectureList }: Props) {
   const { t } = useTranslation()
   return (
     <>
       <Title>{t('感染者リスト')}</Title>
       <Container>
-        {prefectureInfectionList.map((prefectureInfection, index) => {
+        {prefectureList.map((prefecture, index) => {
           return (
             <Wrapper key={index}>
-              <PrefecturePanel prefectureInfection={prefectureInfection} />
+              <PrefecturePanel prefecture={prefecture} />
             </Wrapper>
           )
         })}
