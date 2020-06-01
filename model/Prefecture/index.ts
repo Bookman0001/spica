@@ -11,18 +11,7 @@ interface Response {
   deaths: number
 }
 
-export interface PrefectureInfection {
-  id: number
-  nameJA: string
-  nameEn: string
-  lat: number
-  lng: number
-  population: number
-  cases: number
-  deaths: number
-}
-
-export const getPrefectureInfectionList = async () => {
+export const getPrefectureList = async () => {
   const prefectureList: Response[] = await fetchPrefectureInfectionList()
   return prefectureList.map((item) => {
     return {
