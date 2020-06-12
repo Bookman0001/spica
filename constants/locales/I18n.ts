@@ -4,6 +4,7 @@ import { initReactI18next } from 'react-i18next'
 const resources = {
   ja: {
     translation: {
+      感染者予測データ: '感染者予測データ',
       感染者リスト: '感染者リスト',
       都道府県: '都道府県',
       感染者数: '感染者数',
@@ -13,6 +14,7 @@ const resources = {
   },
   en: {
     translation: {
+      感染者予測データ: 'Prediction List',
       感染者リスト: 'Infection List',
       都道府県: 'Prefecture',
       感染者数: 'Positive Number',

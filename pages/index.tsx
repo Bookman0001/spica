@@ -1,28 +1,50 @@
 import { useTranslation } from 'react-i18next'
+import { Line } from 'react-chartjs-2'
 import styled from 'styled-components'
 
-import '../constants/locales/I18n'
-import { Prefecture } from '../app_interface'
 import { getPrefectureList } from '../model/Prefecture'
+import { getTotalPredictionList } from '../model/TotalPrediction'
+
+import '../constants/locales/I18n'
+import { Prefecture, TotalPrediction } from '../interface'
 import PrefecturePanel from '../components/molecures/PrefecturePanel'
 
 interface Props {
   prefectureList: Prefecture[]
+  totalPredictionList: TotalPrediction[]
 }
 
 export async function getStaticProps() {
   const prefectureList = await getPrefectureList()
+  const totalPredictionList = await getTotalPredictionList()
   return {
     props: {
       prefectureList: prefectureList,
+      totalPredictionList: totalPredictionList,
     },
   }
 }
 
-export default function Home({ prefectureList }: Props) {
+export default function Home({ prefectureList, totalPredictionList }: Props) {
+  if (!prefectureList || !totalPredictionList) {
+    return null
+  }
   const { t } = useTranslation()
+  const predictionMappingData = {
+    labels: totalPredictionList.map((item) => item.date),
+    datasets: [
+      {
+        label: '感染者数',
+        data: totalPredictionList.map((item) => item.positive),
+      },
+    ],
+  }
   return (
     <>
+      <GraphContainer>
+        <Title>{t('感染者予測データ')}</Title>
+        <Line data={predictionMappingData} />
+      </GraphContainer>
       <Title>{t('感染者リスト')}</Title>
       <Container>
         {prefectureList.map((prefecture, index) => {
@@ -36,6 +58,10 @@ export default function Home({ prefectureList }: Props) {
     </>
   )
 }
+
+const GraphContainer = styled.div`
+  padding: 20px;
+`
 
 const Container = styled.div`
   margin: auto;

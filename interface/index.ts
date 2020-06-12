@@ -8,3 +8,9 @@ export interface Prefecture {
   cases: number
   deaths: number
 }
+
+export interface TotalPrediction {
+  date: string
+  positive: number
+  death: number
+}
