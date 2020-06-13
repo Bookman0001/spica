@@ -1,5 +1,5 @@
-export const fetchPrefectureInfectionList = async () => {
-  return await fetch(process.env.API_ENDPOINT + 'prefectures')
+export const fetchTotalPredictionList = async () => {
+  return await fetch(process.env.API_ENDPOINT + 'total?predict=true')
     .then((response) => {
       return response.json()
     })
