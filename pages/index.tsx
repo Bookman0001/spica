@@ -14,7 +14,7 @@ interface Props {
   totalPredictionList: TotalPrediction[]
 }
 
-export async function getStaticProps() {
+export async function getServerSideProps() {
   const prefectureList = await getPrefectureList()
   const totalPredictionList = await getTotalPredictionList()
   return {
