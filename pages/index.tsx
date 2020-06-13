@@ -2,11 +2,11 @@ import { useTranslation } from 'react-i18next'
 import { Line } from 'react-chartjs-2'
 import styled from 'styled-components'
 
-import { getPrefectureList } from '../model/Prefecture'
-import { getTotalPredictionList } from '../model/TotalPrediction'
-
 import '../constants/locales/I18n'
 import { Prefecture, TotalPrediction } from '../interface'
+import { getPrefectureList } from '../model/Prefecture'
+import { getTotalPredictionList } from '../model/TotalPrediction'
+import { ToChartFromPredictionList } from '../helper/chart'
 import PrefecturePanel from '../components/molecures/PrefecturePanel'
 
 interface Props {
@@ -30,19 +30,11 @@ export default function Home({ prefectureList, totalPredictionList }: Props) {
     return null
   }
   const { t } = useTranslation()
-  const predictionMappingData = {
-    labels: totalPredictionList.map((item) => item.date),
-    datasets: [
-      {
-        label: '感染者数',
-        data: totalPredictionList.map((item) => item.positive),
-      },
-    ],
-  }
+  const predictionMappingData = ToChartFromPredictionList(totalPredictionList)
   return (
     <>
+      <Title>{t('感染者予測データ')}</Title>
       <GraphContainer>
-        <Title>{t('感染者予測データ')}</Title>
         <Line data={predictionMappingData} />
       </GraphContainer>
       <Title>{t('感染者リスト')}</Title>
