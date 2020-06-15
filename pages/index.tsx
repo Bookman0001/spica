@@ -15,8 +15,10 @@ interface Props {
 }
 
 export async function getServerSideProps() {
-  const prefectureList = await getPrefectureList()
-  const totalPredictionList = await getTotalPredictionList()
+  const [prefectureList, totalPredictionList] = await Promise.all([
+    getPrefectureList(),
+    getTotalPredictionList(),
+  ])
   return {
     props: {
       prefectureList: prefectureList,
