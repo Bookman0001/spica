@@ -1,7 +1,7 @@
 import { useTranslation } from 'react-i18next'
 
-import '../constants/locales/I18n'
-import { TotalPrediction } from '../interface'
+import 'constants/locales/I18n'
+import { TotalPrediction } from 'interface'
 
 export const ToChartFromPredictionList = (list: TotalPrediction[]) => {
   const { t } = useTranslation()
