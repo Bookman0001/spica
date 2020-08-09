@@ -13,7 +13,6 @@ export default function PrefecturePanel({ prefecture }: Props) {
   return (
     <PrefectureItem cases={prefecture.cases}>
       <Wrapper>
-        <Label>{t('都道府県')}</Label>
         <span>{prefecture.nameJA}</span>
       </Wrapper>
       <Wrapper>
@@ -33,13 +32,14 @@ export default function PrefecturePanel({ prefecture }: Props) {
 }
 
 const PrefectureItem = styled.div<{ cases: number }>`
-  width: 100%;
+  width: calc(100% - 22px);
   border-radius: 10px;
-  padding: 5px;
+  border 1px solid #303030;
+  padding: 10px;
   ${({ cases }) =>
     cases < 500 &&
     css`
-      background-color: #ddffdd;
+      background-color: #48d1cc;
     `}
   ${({ cases }) =>
     cases >= 500 &&
@@ -49,7 +49,7 @@ const PrefectureItem = styled.div<{ cases: number }>`
   ${({ cases }) =>
     cases >= 1000 &&
     css`
-      background-color: #ffccff;
+      background-color: #ffa3a3;
     `}
 `
 
@@ -57,4 +57,6 @@ const Wrapper = styled.div`
   width: 100%;
 `
 
-const Label = styled.label``
+const Label = styled.label`
+  margin: 5px;
+`
