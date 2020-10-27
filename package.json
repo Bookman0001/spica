@@ -15,7 +15,7 @@
     "@types/styled-components": "^5.1.4",
     "chart.js": "^2.9.4",
     "i18next": "^19.8.2",
-    "next": "9.5.5",
+    "next": "10.0.0",
     "react": "16.14.0",
     "react-chartjs-2": "^2.10.0",
     "react-dom": "16.14.0",
