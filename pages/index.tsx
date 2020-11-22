@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 
 import 'constants/locales/I18n'
-import { Prefecture, TotalPrediction } from 'interface'
+import { Prefecture, TotalPrediction } from 'types'
 import { getPrefectureList } from 'model/Prefecture'
 import { getTotalPredictionList } from 'model/TotalPrediction'
 import { toChartFromPredictionList } from 'helper/chart'
