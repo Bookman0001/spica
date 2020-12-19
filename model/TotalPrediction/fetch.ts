@@ -3,8 +3,7 @@ export const fetchTotalPredictionList = async () => {
     .then((response) => {
       return response.json()
     })
-    .catch((e) => {
-      console.log(e)
+    .catch(() => {
       return null
     })
 }
