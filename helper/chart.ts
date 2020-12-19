@@ -1,9 +1,9 @@
 import { useTranslation } from 'react-i18next'
 
 import 'constants/locales/I18n'
-import { TotalPrediction } from 'interface'
+import { TotalPrediction } from 'types'
 
-export const ToChartFromPredictionList = (list: TotalPrediction[]) => {
+export const toChartFromPredictionList = (list: TotalPrediction[]) => {
   const { t } = useTranslation()
   return {
     labels: list.map((item) => item.date),

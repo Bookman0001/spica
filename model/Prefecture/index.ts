@@ -1,6 +1,6 @@
 import { fetchPrefectureInfectionList } from './fetch'
 
-interface Response {
+type Response = {
   id: number
   name_ja: string
   name_en: string

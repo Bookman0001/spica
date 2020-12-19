@@ -1,4 +1,4 @@
-export interface Prefecture {
+export type Prefecture = {
   id: number
   nameJA: string
   nameEn: string
@@ -9,7 +9,7 @@ export interface Prefecture {
   deaths: number
 }
 
-export interface TotalPrediction {
+export type TotalPrediction = {
   date: string
   positive: number
   death: number

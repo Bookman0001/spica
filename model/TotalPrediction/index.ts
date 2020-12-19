@@ -1,6 +1,6 @@
 import { fetchTotalPredictionList } from './fetch'
 
-interface Response {
+type Response = {
   date: string
   positive: number
   death: number

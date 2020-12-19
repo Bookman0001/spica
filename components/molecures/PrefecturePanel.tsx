@@ -2,7 +2,7 @@ import { useTranslation } from 'react-i18next'
 import styled, { css } from 'styled-components'
 
 import 'constants/locales/I18n'
-import { Prefecture } from 'interface'
+import { Prefecture } from 'types'
 
 interface Props {
   prefecture: Prefecture

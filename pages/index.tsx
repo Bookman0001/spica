@@ -4,10 +4,10 @@ import styled from 'styled-components'
 import media from 'styled-media-query'
 
 import 'constants/locales/I18n'
-import { Prefecture, TotalPrediction } from 'interface'
+import { Prefecture, TotalPrediction } from 'types'
 import { getPrefectureList } from 'model/Prefecture'
 import { getTotalPredictionList } from 'model/TotalPrediction'
-import { ToChartFromPredictionList } from 'helper/chart'
+import { toChartFromPredictionList } from 'helper/chart'
 import PrefecturePanel from 'components/molecures/PrefecturePanel'
 import BasicLayout from './basicLayout'
 
@@ -34,7 +34,7 @@ export default function Home({ prefectureList, totalPredictionList }: Props) {
     return null
   }
   const { t } = useTranslation()
-  const predictionMappingData = ToChartFromPredictionList(totalPredictionList)
+  const predictionMappingData = toChartFromPredictionList(totalPredictionList)
   return (
     <BasicLayout>
       <Title>{t('感染者予測データ')}</Title>
