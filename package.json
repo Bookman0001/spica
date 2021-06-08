@@ -12,7 +12,7 @@
     "@types/node": "^15.12.1",
     "@types/react": "^17.0.9",
     "@types/react-i18next": "^8.1.0",
-    "@types/styled-components": "^5.1.9",
+    "@types/styled-components": "^5.1.10",
     "chart.js": "^2.9.4",
     "next": "10.2.3",
     "i18next": "^20.3.1",
